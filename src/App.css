@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.App .logo {
+  background-color: #000000;
+  padding: 1rem 0;
+}
+
+.App .logo h1 {
+  text-align: center;
+  color: whitesmoke;
+  letter-spacing: 1px;
+}
+
+.App .addTodo {
+  cursor: pointer;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 100px;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 3rem;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.App .addTodo:hover {
+  outline: 20px solid rgba(0, 0, 0, 0.103);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.App .All-Todos {
+  padding: 0 2rem;
+  margin-top: 3rem;
+}
+
+.App .All-Todos .Todos {
+  margin-top: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 2rem;
+}
+
+.App .All-Todos .Todos .Todo-card {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  background: -webkit-gradient(linear, left top, right top, from(#cb356b), to(#bd3f32));
+  background: linear-gradient(to right, #cb356b, #bd3f32);
+  padding: 1rem;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  gap: 1rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.App .All-Todos .Todos .Todo-card .heading {
+  font-size: 1.2rem;
+}
+
+.App .All-Todos .Todos .Todo-card .description {
+  font-size: 1rem;
+}
+
+.App .All-Todos .Todos .Todo-card .created {
+  font-size: 0.8rem;
+}
+
+.App .All-Todos .Todos .Todo-card:hover {
+  -webkit-transform: scale(1.09);
+          transform: scale(1.09);
+}
+
+.Todo-Form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: auto;
+  width: 40rem;
+  background: -webkit-gradient(linear, left top, right top, from(#0f2027), color-stop(#203a43), to(#2c5364));
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.Todo-Form .create-heading {
+  font-size: 1.7rem;
+  text-align: center;
+  letter-spacing: 1px;
+  background: -webkit-gradient(linear, left top, right top, from(#134e5e), to(#71b280));
+  background: linear-gradient(to right, #134e5e, #71b280);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.Todo-Form #heading {
+  height: 3rem;
+  padding: 0.2rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.Todo-Form #description {
+  max-width: 100%;
+  max-height: 10rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.Todo-Form .createdFor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.Todo-Form .createdFor > span {
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+.Todo-Form .createdFor div span {
+  font-size: 0.8rem;
+  color: #868686;
+  margin-left: 1rem;
+}
+
+.Todo-Form #time {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  height: 3rem;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem;
+}
+
+.Todo-Form .add {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background: #659999;
+  color: whitesmoke;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.Todo-Form .add:hover {
+  padding: 0.7rem 2rem;
+}
+
+.activeForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=App.css.map */
