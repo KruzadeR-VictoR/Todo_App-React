@@ -58,8 +58,9 @@
 }
 
 .App .All-Todos {
-  padding: 0 2rem;
+  padding: 0 2rem 2rem;
   margin-top: 3rem;
+  max-width: 100%;
 }
 
 .App .All-Todos .Todos {
@@ -70,11 +71,23 @@
       grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: auto;
       grid-template-rows: auto;
+  grid-auto-flow: row dense;
   grid-gap: 2rem;
 }
 
+@media screen and (max-width: 500px) {
+  .App .All-Todos .Todos {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
 .App .All-Todos .Todos .Todo-card {
-  cursor: pointer;
+  position: relative;
+  max-height: 20rem;
+  max-width: 20rem;
+  overflow-wrap: break-word;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,12 +106,19 @@
   transition: all 0.3s ease-in-out;
 }
 
+@media screen and (max-width: 500px) {
+  .App .All-Todos .Todos .Todo-card {
+    width: 100%;
+  }
+}
+
 .App .All-Todos .Todos .Todo-card .heading {
   font-size: 1.2rem;
 }
 
 .App .All-Todos .Todos .Todo-card .description {
   font-size: 1rem;
+  overflow-y: visible;
 }
 
 .App .All-Todos .Todos .Todo-card .created {
@@ -108,6 +128,25 @@
 .App .All-Todos .Todos .Todo-card:hover {
   -webkit-transform: scale(1.09);
           transform: scale(1.09);
+}
+
+.App .All-Todos .Todos .Todo-card .close-card {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.App .All-Todos .Todos .Todo-card .close-card:hover {
+  background: black;
+}
+
+.App .All-Todos .Todos .Todo-card .close-card img {
+  height: 1.5rem;
 }
 
 .Todo-Form {
@@ -130,6 +169,12 @@
   border-radius: 10px;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+@media screen and (max-width: 500px) {
+  .Todo-Form {
+    width: 90%;
+  }
 }
 
 .Todo-Form .create-heading {
@@ -216,9 +261,35 @@
   padding: 0.7rem 2rem;
 }
 
+.Todo-Form .close {
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  background: transparent;
+  border: none;
+}
+
+.Todo-Form .close img {
+  height: 2rem;
+  aspect-ratio: 1;
+}
+
 .activeForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.overlay {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.514);
+}
+
+.noTodos {
+  width: 100vw;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 /*# sourceMappingURL=App.css.map */

@@ -49,16 +49,26 @@ $fadeBlack: rgba(0, 0, 0, 0.6);
   }
   //   all Todos
   .All-Todos {
-    padding: 0 2rem;
+    padding:0 2rem 2rem;
     margin-top: 3rem;
+    max-width: 100%;
     .Todos {
       margin-top: 2rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto;
+      grid-auto-flow: row dense;
       grid-gap: 2rem;
+      @media screen and (max-width: 500px) {
+        grid-template-columns:1fr;
+        justify-items: center;
+      }
       .Todo-card {
-        cursor: pointer;
+        // cursor: pointer;
+        position: relative;
+        max-height: 20rem;
+        max-width: 20rem;
+        overflow-wrap: break-word;
         display: flex;
         flex-flow: column;
         background: linear-gradient(to right, #cb356b, #bd3f32);
@@ -69,17 +79,36 @@ $fadeBlack: rgba(0, 0, 0, 0.6);
 
         gap: 1rem;
         transition: all 0.3s ease-in-out;
+        @media screen and (max-width: 500px){
+          width: 100%;
+        }
         .heading {
           font-size: 1.2rem;
         }
         .description {
           font-size: 1rem;
+          overflow-y: visible;
         }
         .created {
           font-size: 0.8rem;
         }
         &:hover {
           transform: scale(1.09);
+        }
+        .close-card {
+          cursor: pointer;
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
+          background: transparent;
+          border: none;
+          transition: all 0.2s ease-in;          
+          &:hover {
+            background: black;
+          }
+          img {
+            height: 1.5rem;
+          }
         }
       }
     }
@@ -101,6 +130,9 @@ $fadeBlack: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    @media screen and (max-width: 500px){
+      width: 90%;
+    }
   .create-heading {
     font-size: 1.7rem;
     text-align: center;
@@ -166,8 +198,32 @@ $fadeBlack: rgba(0, 0, 0, 0.6);
       padding: 0.7rem 2rem;
     }
   }
+  .close {
+    cursor: pointer;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    background: transparent;
+    border: none;
+    img {
+      height: 2rem;
+      aspect-ratio: 1;
+    }
+  }
 }
 
+// Utilities
 .activeForm {
   display: flex;
+}
+.overlay {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.514);  
+}
+
+.noTodos {
+  width: 100vw;
+  text-align: center;
+  font-size: 1rem;
+  color: $fadeBlack;
 }
